@@ -3,7 +3,7 @@
 namespace Apperapi\Validation\Rule\DateTime;
 
 use Apperapi\Validation\Rule\Combinator\All;
-use Apperapi\Validation\DataType\String;
+use Apperapi\Validation\Rule\DataType\StringType;
 use Apperapi\Validation\Result;
 use Apperapi\Validation\Rule;
 
@@ -11,7 +11,7 @@ final class ValidString implements Rule
 {
     public function validate(mixed $value): Result
     {
-        $result = (new String())->validate($value);
+        $result = (new StringType())->validate($value);
 
         if (!$result->isValid()) {
             return $result;

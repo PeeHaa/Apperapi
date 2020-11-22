@@ -2,18 +2,24 @@
 
 namespace Apperapi\Entity;
 
-use Apperapi\Tranformation\DateTime\DateTimeObjectToIsoDateTimeString;
+use Apperapi\Annotation\Transforms;
+use Apperapi\Transformation\DateTime\DateTimeObjectToIsoDateTimeString;
 
 final class User
 {
     private ?int $id = null;
 
-    private string $firstName;
+    private string $firstName = 'John';
 
-    private string $lastName;
+    private string $lastName = 'Doe';
 
-    private string $emailAddress;
+    private string $emailAddress = 'johndoe@example.com';
 
-    #[DateTimeObjectToIsoDateTimeString]
-    private DateTimeImmutable $createdAt;
+    #[Transforms(DateTimeObjectToIsoDateTimeString::class)]
+    private \DateTimeImmutable $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable();
+    }
 }

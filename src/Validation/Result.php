@@ -4,7 +4,12 @@ namespace Apperapi\Validation;
 
 final class Result
 {
-    private function __construct(private bool $valid, private Error ....$errors) {}
+    private array $errors;
+
+    private function __construct(private bool $valid, Error ...$errors)
+    {
+        $this->errors = $errors;
+    }
 
     public static function succeed(): self
     {

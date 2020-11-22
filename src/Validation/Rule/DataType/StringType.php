@@ -5,7 +5,7 @@ namespace Apperapi\Validation\Rule\DataType;
 use Apperapi\Validation\Result;
 use Apperapi\Validation\Rule;
 
-final class String implements Rule
+final class StringType implements Rule
 {
     public function validate(mixed $value): Result
     {
