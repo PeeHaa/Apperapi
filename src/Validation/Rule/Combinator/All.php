@@ -11,17 +11,11 @@ final class All implements Rule
 
     public function validate(mixed $value): Result
     {
-        $errors = [];
-
-        foreach ($this->rules as $rule) {
-            $result = $rule->validate($value);
-
-            if ($result->isValid()) {
-                continue;
-            }
-
-            $errors += $result->getErrors();
-        }
+        $errors = array_reduce(
+            $this->rules,
+            fn (array $errors, Rule $rule) => array_merge($errors, $rule->validate($value)->getErrors()),
+            [],
+        );
 
         if ($errors) {
             return Result::failWithErrors(...$errors);
