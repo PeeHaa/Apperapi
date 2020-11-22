@@ -1,0 +1,13 @@
+{
+    "name": "apperapi/apperapi",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pieter Hordijk",
+            "email": "info@pieterhordijk.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
